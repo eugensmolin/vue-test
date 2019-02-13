@@ -1,40 +1,53 @@
 <template>
-    <div id="app">
-        <img src="./assets/logo.png">
-        <h2>{{ msg }}</h2>
-        <div v-for="elem in arr">
-            {{ elem.name }} - {{ elem.years }}
+    <div class="container">
+        <div class="logo">
+            <img src="./assets/logo.png">
+        </div>
+
+        <div class="content">
+            <input type="text" @input="changeInput">
+            <h3 class="result">
+                {{ result }}
+            </h3>
+            <!-- ===== -->
+            <h3>{{ name }} {{ name.split('') }}</h3>
+            <!-- ===== -->
+            <a :href="url">Google</a>
         </div>
     </div>
-    <!--<counter></counter>-->
 </template>
 
 <script>
 
-    // Vue.component('counter', require('./components/Counter').default);
-
-    var arr = [
-        {
-            name: 'Stan',
-            years: 32
-        },
-        {
-            name: 'Estas',
-            years: 65
-        }
-    ];
 
     export default {
         name: "app",
         data() {
             return {
-                msg: 'Welcome to Your Vue.js App',
-                arr: arr
+                result: 'Hello Vue!',
+                name: 'Hello Vue',
+                url: 'http://google.com'
+            }
+        },
+        methods: {
+            changeInput(event) {
+                this.result = event.target.value;
             }
         }
     }
 </script>
 
 <style lang="scss">
+    .container {
+        width: 600px;
+        margin: 0 auto;
 
+        .logo {
+            text-align: center;
+        }
+
+        .content {
+            text-align: center;
+        }
+    }
 </style>
