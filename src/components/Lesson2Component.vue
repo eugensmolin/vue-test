@@ -2,13 +2,15 @@
     <div class="container">
 
         <!--<my-car carName="Mazda"></my-car>-->
-        <my-car>
+        <!--<my-car>
             <h1 slot="title" v-colored="'green'" v-if="visible">{{ carName }}</h1>
             <p slot="desc">{{ carDesc }}</p>
-        </my-car>
+        </my-car>-->
+
+        <h1 v-colored="'green'" v-if="visible">{{ title }}</h1>
 
         <button @click="visible = !visible">Toggle</button>
-        <button @click="carName = 'Mazda'">Change name</button>
+        <button @click="title = 'New title'">Change title</button>
 
         <!--<hr>-->
 
@@ -28,7 +30,8 @@
             return {
                 carName: "Ford",
                 carDesc: "Lorem ipsum dolor sit amet.",
-                visible: true
+                visible: true,
+                title: "Vue js"
             }
         },
         components: {
