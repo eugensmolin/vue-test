@@ -1,70 +1,78 @@
 <template>
     <div class="container">
 
-        <ul>
-            <li v-for="name in peoples">{{ name }}</li>
-        </ul>
+        <!--<my-car carName="Mazda"></my-car>-->
+        <my-car>
+            <h1 slot="title" v-colored="'green'" v-if="visible">{{ carName }}</h1>
+            <p slot="desc">{{ carDesc }}</p>
+        </my-car>
 
-        <ul>
-            <li v-for="(value,key,index) in person">{{ index + 1 }} - {{ key }}: {{ value }}</li>
-        </ul>
-        <hr>
-        <h2>Counter: {{ counter }} / {{ counter2 }}</h2>
-        <h3>Result: {{ result() }}</h3>
-        <h3>Computed result: {{ computedResult }}</h3>
+        <button @click="visible = !visible">Toggle</button>
+        <button @click="carName = 'Mazda'">Change name</button>
 
-        <button @click="add">Add</button>
-        <button @click="sub">Sub</button>
-        <button @click="counter2++">Add counter2</button>
+        <!--<hr>-->
+
+        <!--<my-counter></my-counter>-->
 
     </div>
 </template>
 
 <script>
+
+    import Car from './CarComponent';
+    import Counter from './CounterComponent';
+
     export default {
         name: "Lesson2Component",
         data() {
             return {
-                peoples: ['Vlad', 'Max', 'Stan'],
-                person: {
-                    name: 'Vlad',
-                    age: 30,
-                    job: 'Backend developer'
-                },
-                counter: 0,
-                counter2: 0,
-                condition: 'Less than 3'
+                carName: "Ford",
+                carDesc: "Lorem ipsum dolor sit amet.",
+                visible: true
             }
         },
-        methods: {
-            add() {
-                this.counter++;
-            },
-            sub() {
-                this.counter--;
-            },
-            result() {
-                console.log('Result was called');
-                return this.counter > 3 ? 'More than 3' : 'Less than 3';
-            }
+        components: {
+            myCar: Car,
+            myCounter: Counter
         },
-        computed: {
-            computedResult() {
-                console.log('Computed result was called');
-                return this.counter > 3 ? 'More than 3' : 'Less than 3';
-            }
-        },
-        watch: {
-            counter(val) {
-                console.log('Counter: ', val);
-            }
-        }
+        // beforeCreate() {
+        //     console.log('Before create');
+        // },
+        // created() {
+        //     console.log('Created');
+        // },
+        // beforeMount() {
+        //     console.log('Before Mount');
+        // },
+        // mounted() {
+        //     console.log('Mounted');
+        // },
+        // beforeUpdate() {
+        //     console.log('Before Update');
+        // },
+        // updated() {
+        //     console.log('Updated');
+        // },
+        // beforeDestroy() {
+        //     console.log('Before destroyed');
+        // },
+        // destroyed() {
+        //     console.log('Destroyed');
+        // },
+        methods: {}
     }
+
 </script>
 
+
 <style lang="scss">
+
     .container {
-        width: 600px;
+        width: 100%;
+        max-width: 800px;
         margin: 0 auto;
+        border: 1px solid #d7d7d7;
+        padding: 15px;
     }
+
 </style>

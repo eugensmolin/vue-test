@@ -10,7 +10,14 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
-    "vue": "^2.5.11"
+    "vue": "^2.5.11",
+    "vue-chat-scroll": "^1.3.5",
+    "vue-dropdowns": "^1.0.6",
+    "vue-nice-scrollbar": "^2.0.1",
+    "vue-scrollbar": "^1.0.4",
+    "vue-select": "^2.6.0",
+    "vue2-perfect-scrollbar": "^1.2.0",
+    "vuescroll": "^4.12.0"
   },
   "browserslist": [
     "> 1%",
