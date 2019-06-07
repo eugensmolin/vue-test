@@ -7,13 +7,15 @@
             <p slot="desc">{{ carDesc }}</p>
         </my-car>-->
 
-        <h1 v-colored="'green'" v-if="visible">{{ title }}</h1>
+        <h1 v-colored:color="'green'" v-if="visible">{{ title }}</h1>
+
+        <!-- Local directives -->
+        <h1 v-font>Lorem ipsum dolor sit amet.</h1>
 
         <button @click="visible = !visible">Toggle</button>
         <button @click="title = 'New title'">Change title</button>
 
         <!--<hr>-->
-
         <!--<my-counter></my-counter>-->
 
     </div>
@@ -31,7 +33,7 @@
                 carName: "Ford",
                 carDesc: "Lorem ipsum dolor sit amet.",
                 visible: true,
-                title: "Vue js"
+                title: "Title"
             }
         },
         components: {
@@ -62,7 +64,14 @@
         // destroyed() {
         //     console.log('Destroyed');
         // },
-        methods: {}
+        methods: {},
+        directives: {
+            font: {
+                bind(el, bindings, vnode) {
+                    el.style.color = 'blue';
+                }
+            }
+        }
     }
 
 </script>

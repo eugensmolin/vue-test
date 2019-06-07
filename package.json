@@ -17,6 +17,7 @@
     "vue-scrollbar": "^1.0.4",
     "vue-select": "^2.6.0",
     "vue2-perfect-scrollbar": "^1.2.0",
+    "vuelidate": "^0.7.4",
     "vuescroll": "^4.12.0"
   },
   "browserslist": [
